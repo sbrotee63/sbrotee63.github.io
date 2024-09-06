@@ -3,7 +3,7 @@ title: "Optimizing UAV-UGV Coalition Operations: A Hybrid Clustering and Multi-A
 Approach for Path Planning in Obstructed Environment"
 collection: publications
 category: manuscripts
-permalink: /publication/2024-07-01-UAV_UGV_Coalition_MADRL_Hybrid
+permalink: # URL
 excerpt: 'One of the most critical applications undertaken by Unmanned Aerial Vehicles (UAVs) and Unmanned Ground
 Vehicles (UGVs) is reaching predefined targets by following the most time-efficient routes while avoiding
 collisions. Unfortunately, UAVs are hampered by limited battery life, and UGVs face challenges in reachability
