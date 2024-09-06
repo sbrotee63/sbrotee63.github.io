@@ -1,9 +1,6 @@
 ---
 title: "Optimizing UAV-UGV Coalition Operations: A Hybrid Clustering and Multi-Agent Reinforcement Learning
 Approach for Path Planning in Obstructed Environment"
-collection: publications
-category: manuscripts
-permalink: # URL
 excerpt: 'One of the most critical applications undertaken by Unmanned Aerial Vehicles (UAVs) and Unmanned Ground
 Vehicles (UGVs) is reaching predefined targets by following the most time-efficient routes while avoiding
 collisions. Unfortunately, UAVs are hampered by limited battery life, and UGVs face challenges in reachability
@@ -23,7 +20,4 @@ date: 2024-07-01
 venue: 'Ad Hoc Networks, Elsevier'
 slidesurl: # URL
 paperurl: 'http://sbrotee63.github.io/files/UAV_UGV_Coalition_MADRL_Hybrid_Shamyo_Brotee.pdf'
-citation: # URL
 ---
-
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
