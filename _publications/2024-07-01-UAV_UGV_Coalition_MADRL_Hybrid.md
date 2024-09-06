@@ -22,7 +22,7 @@ doubling efficiency in terms of target navigation time and task completion rate.
 date: 2024-07-01
 venue: 'Ad Hoc Networks, Elsevier'
 slidesurl: # URL
-paperurl: 'http://academicpages.github.io/files/UAV_UGV_Coalition_MADRL_Hybrid_Shamyo_Brotee.pdf'
+paperurl: 'http://sbrotee63.github.io/files/UAV_UGV_Coalition_MADRL_Hybrid_Shamyo_Brotee.pdf'
 citation: # URL
 ---
 
