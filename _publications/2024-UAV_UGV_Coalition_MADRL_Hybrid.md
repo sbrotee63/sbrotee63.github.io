@@ -24,6 +24,9 @@ venue: 'Ad Hoc Networks, Elsevier'
 slidesurl: # URL
 paperurl: 'http://sbrotee63.github.io/files/UAV_UGV_Coalition_MADRL_Hybrid_Shamyo_Brotee.pdf'
 ---
+Authors: Shamyo Brotee, Farhan Kabir, Md. Abdur Razzaque, Palash Roy,
+Md. Mamun-Or-Rashid, Md. Rafiul Hassan, Mohammad Mehedi Hassan
+
 Abstract: One of the most critical applications undertaken by Unmanned Aerial Vehicles (UAVs) and Unmanned Ground
 Vehicles (UGVs) is reaching predefined targets by following the most time-efficient routes while avoiding
 collisions. Unfortunately, UAVs are hampered by limited battery life, and UGVs face challenges in reachability
