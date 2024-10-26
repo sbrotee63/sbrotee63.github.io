@@ -6,9 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-   
-   
-   
+      
 I am a Computer Science and Engineering (CSE) graduate from the University of Dhaka, class of 2023. I worked as a data engineer in Enosis Solutions for one and a half year right after my graduation. I have been working as a research assistant in Green Networking Research (GNR) Group under the supervision of Professor Dr. Md. Abdur Razzaque since my undergraduate days.
 
 Currently, I am looking for PhD opportunities starting in Fall 2025.

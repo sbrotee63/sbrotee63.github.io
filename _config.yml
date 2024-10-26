@@ -8,11 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Shamyo Brotee's Page"
+title                    : "Shamyo Brotee"
 theme                    : "jekyll-theme-minimal"
 title_separator          : "-"
 name                     : &name "Shamyo Brotee"
-description              : &description "personal description"
+description              : &description "This page will contain the news about my life"
 url                      : https://sbrotee63.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sbrotee63/sbrotee63.github.io"
