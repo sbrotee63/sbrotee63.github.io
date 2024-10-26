@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Shamyo Brotee"
+title                    : "Shamyo Brotee     "
 title_separator          : "-"
 name                     : &name "Shamyo Brotee"
 description              : &description "personal description"
@@ -22,7 +22,7 @@ repository               : "sbrotee63/sbrotee63.github.io"
 author:
   # Biographic information
   avatar           : "dp.jpg"
-  name             : "Shamyo Brotee       "
+  name             : "Shamyo Brotee"
   pronouns         : # example: "she/her"  
   bio              : "Aspiring Computer Scientist"
   location         : "Dhaka, Bangladesh"
