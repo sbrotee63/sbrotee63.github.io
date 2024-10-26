@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Shamyo Brotee's Homepage"
+title                    : "Shamyo Brotee"
 theme                    : "jekyll-theme-minimal"
 title_separator          : "-"
 name                     : &name "Shamyo Brotee"
