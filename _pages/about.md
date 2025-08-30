@@ -7,10 +7,12 @@ redirect_from:
   - /about.html
 ---
       
-I am a Computer Science and Engineering (CSE) graduate from the University of Dhaka, class of 2023. I worked as a data engineer in Enosis Solutions for one and a half year right after my graduation. I have been working as a research assistant in Green Networking Research (GNR) Group under the supervision of Professor Dr. Md. Abdur Razzaque since my undergraduate days.
+I am currently a Computer Science MS student at Texas State University, beginning in Fall 2025. I am also employed as a Graduate Research Assistant at the same university under the supervision of Dr. Subasish Das and Dr. Anandi Dutta. Originally from Bangladesh, I earned my BS degree in Computer Science and Engineering from the University of Dhaka, class of 2023.
 
-Currently, I am looking for PhD opportunities starting in Fall 2025.
+I worked as a data engineer in Enosis Solutions, a software development company in Bangladesh, right after my graduation. My next adventure was as a faculty lecturer in the Department of Computer Science and Engineering at Shanto-Mariam University of Creative Technology, Bangladesh. I have also worked as an Undergraduate Research Assistant in the Green Networking Research (GNR) Group at the University of Dhaka under the supervision of Dr. Md. Abdur Razzaque.
 
-My research interests lie in automated vehicles, deep reinforcement learning, cyber-physical systems, internet of things, systems security, and robotics. My current objective is to pursue a suitable CS PhD degree to fulfill my dream of becoming a proficient CS researcher, and make meaningful contributions towards my research fields.
+I published a paper as the first author in Ad Hoc Networks, Elsevier (A Q1 journal) in July 2024. It involves designing a minimal-collision, optimal path toward specific destinations with coalitions of UAV-UGV (Unmanned Aerial Vehicles - Unmanned Ground Vehicles) in an obstructed environment. The work involved creating a hybrid framework integrating mean-shift clustering and multi-agent deep reinforcement learning.
 
-I am a good problem-solver who’s always willing to learn more. I have a great capability in performing well under pressure within time constraints and can deliver results within tight deadlines.
+My research interests lie in autonomous vehicles, multi-agent deep reinforcement learning, applying ML strategies in cyber-physical systems, and robotic motion planning. My current objective is to become a proficient CS researcher and make meaningful contributions to my research fields during my graduate studies.
+
+I am an inquisitive person who is always willing to learn more and explore new ideas. I possess a strong ability to perform well under pressure within time constraints and consistently deliver results within tight deadlines.
