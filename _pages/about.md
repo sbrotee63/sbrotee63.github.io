@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
       
-I am currently a Computer Science MS student at Texas State University, beginning in Fall 2025. I am also employed as a Graduate Research Assistant at the same university under the supervision of Dr. Subasish Das and Dr. Anandi Dutta. Originally from Bangladesh, I earned my BS degree in Computer Science and Engineering from the University of Dhaka, class of 2023.
+I am currently a Computer Science MS student at Texas State University, beginning in Fall 2025. I am also employed as a Graduate Research Assistant at the same university. Originally from Bangladesh, I earned my BS degree in Computer Science and Engineering from the University of Dhaka, class of 2023.
 
 I worked as a data engineer in Enosis Solutions, a software development company in Bangladesh, right after my graduation. My next adventure was as a faculty lecturer in the Department of Computer Science and Engineering at Shanto-Mariam University of Creative Technology, Bangladesh. I have also worked as an Undergraduate Research Assistant in the Green Networking Research (GNR) Group at the University of Dhaka under the supervision of Dr. Md. Abdur Razzaque.
 
