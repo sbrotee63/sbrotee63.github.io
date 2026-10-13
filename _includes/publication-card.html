@@ -1,0 +1,22 @@
+{% assign publication = include.publication %}
+{% assign publication_heading = include.heading_level | default: 2 %}
+<article class="publication-card" aria-label="{{ publication.title | escape }}">
+  <div class="publication-year"><time datetime="{{ publication.date | date: '%Y-%m-%d' }}">{{ publication.date | date: '%Y' }}</time></div>
+  <div class="publication-body">
+    <p class="publication-venue">{{ publication.venue | escape }}</p>
+    <h{{ publication_heading }} class="publication-title"><a href="{{ publication.url | relative_url }}">{{ publication.title | escape }}</a></h{{ publication_heading }}>
+    {% if publication.authors %}
+      <p class="publication-authors">{% for author in publication.authors %}{% if author == site.author.name %}<strong>{{ author | escape }}</strong>{% else %}{{ author | escape }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    {% endif %}
+    <div class="publication-actions">
+      {% if publication.paperurl %}<a class="button button--secondary" href="{{ publication.paperurl | escape }}">Read paper <span class="button-format">PDF</span> <span aria-hidden="true">↗</span></a>{% endif %}
+      <a class="publication-detail-link" href="{{ publication.url | relative_url }}">Publication details <span aria-hidden="true">↗</span></a>
+    </div>
+    {% if publication.excerpt %}
+      <details class="publication-abstract">
+        <summary>Abstract</summary>
+        <div class="publication-abstract__content">{{ publication.excerpt | markdownify }}</div>
+      </details>
+    {% endif %}
+  </div>
+</article>

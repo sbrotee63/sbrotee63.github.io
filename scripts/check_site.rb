@@ -165,7 +165,9 @@ class SiteCheck
   end
 
   def check_redirects
-    { "/cv/" => "/files/CV_Shamyo_Brotee.pdf", "/resume" => "/cv/" }.each do |route, destination|
+    { "/cv/" => "/files/CV_Shamyo_Brotee.pdf", "/resume" => "/cv/",
+      "/about/" => "/", "/about.html" => "/",
+      "/wordpress/blog-posts/" => "/year-archive/" }.each do |route, destination|
       file = target_file("#{@baseurl}#{route}")
       unless file
         @errors << "Missing redirect route #{route}"
@@ -175,7 +177,10 @@ class SiteCheck
       expected = "#{@origin}#{@baseurl}#{destination}"
       assert(doc.at_css('link[rel="canonical"]')&.[]("href") == expected, "#{route} should redirect to #{destination}")
       refresh = doc.css("meta").find { |node| node["http-equiv"].to_s.downcase == "refresh" }
-      assert(refresh && refresh["content"].to_s.include?(expected), "#{route} needs an automatic redirect")
+      refresh_target = refresh&.[]("content").to_s[/\A\s*0\s*;\s*url\s*=\s*(.+)\z/i, 1]
+      assert(refresh_target && URI.join("#{@origin}/", refresh_target).to_s == expected,
+             "#{route} needs an automatic redirect to #{destination}")
+      assert(refresh_target == "#{@baseurl}#{destination}", "#{route} must stay on the current preview origin")
     end
   end
 

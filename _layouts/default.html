@@ -11,7 +11,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body class="midnight-site" id="top">
     <a class="skip-link screen-reader-text" href="#main">Skip to main content</a>
 
     {% include browser-upgrade.html %}
@@ -20,8 +20,7 @@ layout: compress
     {{ content }}
 
     <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
+      <footer class="site-footer">
         {% include footer.html %}
       </footer>
     </div>

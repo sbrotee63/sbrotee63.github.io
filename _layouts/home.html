@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+<main id="main" class="home-page" tabindex="-1">
+  <section id="about" class="home-hero" aria-labelledby="hero-name">
+    <div class="hero-copy">
+      <h1 id="hero-name" class="hero-name"><span>Shamyo</span> <span>Brotee</span></h1>
+      <p class="hero-role">{{ page.hero_role | escape }}{% if page.hero_affiliation %}<span class="hero-affiliation">{{ page.hero_affiliation | escape }}</span>{% endif %}</p>
+      <div class="hero-summary">{{ page.hero_summary | markdownify }}</div>
+      <div class="hero-actions">
+        <a class="button button--primary" href="{{ base_path }}/#research">Explore my research <span aria-hidden="true">↗</span></a>
+        <a class="button button--secondary" href="{{ base_path }}/files/CV_Shamyo_Brotee.pdf">View CV <span class="button-format">PDF</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero-portrait">
+      <div class="portrait-frame author__avatar">
+        <span class="portrait-orbit" aria-hidden="true"></span>
+        <img src="{{ base_path }}/images/dp-480.jpg" srcset="{{ base_path }}/images/dp-240.jpg 240w, {{ base_path }}/images/dp-480.jpg 480w" sizes="(min-width: 1001px) 320px, (min-width: 761px) 280px, (min-width: 601px) 230px, (min-width: 368px) 320px, calc(100vw - 36px)" width="480" height="640" alt="Shamyo Brotee standing on a city street at night" decoding="async" fetchpriority="high">
+      </div>
+      {% include profile-links.html %}
+    </div>
+  </section>
+
+  <section id="research" class="home-section research-section" aria-labelledby="research-title">
+    <header class="section-heading">
+      <p class="section-kicker">01 / Research</p>
+      <h2 id="research-title">What I’m exploring</h2>
+    </header>
+    <ul class="interest-list" aria-label="Research interests">
+      {% for interest in page.research_interests %}
+        <li>{{ interest | escape }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="publications" class="home-section publications-section" aria-labelledby="publications-title">
+    <header class="section-heading">
+      <p class="section-kicker">02 / Publications</p>
+      <h2 id="publications-title">Selected Publications</h2>
+    </header>
+    {% for publication in site.publications reversed %}
+      {% include publication-card.html publication=publication heading_level=3 %}
+    {% endfor %}
+  </section>
+
+  <section id="background" class="home-section background-section" aria-labelledby="background-title">
+    <header class="section-heading">
+      <p class="section-kicker">03 / Background</p>
+      <h2 id="background-title">A little more about me</h2>
+    </header>
+    <div class="background-copy">{{ content }}</div>
+  </section>
+</main>

@@ -7,7 +7,6 @@ $(document).ready(function(){
   var updateMotion = function() {
     $.fx.off = reducedMotion.matches;
     if (reducedMotion.matches) $(':animated').stop(true, true);
-    $("a:not(.skip-link)").smoothScroll({offset: -80, speed: reducedMotion.matches ? 0 : 400});
   };
   updateMotion();
   if (reducedMotion.addEventListener) {
@@ -16,93 +15,25 @@ $(document).ready(function(){
     reducedMotion.addListener(updateMotion);
   }
 
-  // Sticky footer
-  var bumpIt = function() {
-      $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
-    },
-    didResize = false;
-
-  bumpIt();
-
-  $(window).resize(function() {
-    didResize = true;
-  });
-  setInterval(function() {
-    if (didResize) {
-      didResize = false;
-      bumpIt();
-    }
-  }, 250);
-  // FitVids init
   $("#main").fitVids();
-
-  // init sticky sidebar
-  $(".sticky").Stickyfill();
-
-  var $authorWrapper = $(".author__urls-wrapper");
-  var $followButton = $authorWrapper.find("button");
-  var $authorLinks = $authorWrapper.find(".author__urls");
-  var sidebarDesktop;
-
-  $followButton.toggleClass('hidden', $authorLinks.children('li').not('.author__desktop').length === 0);
-
-  var setAuthorExpanded = function(expanded, animate) {
-    $followButton.attr('aria-expanded', String(expanded)).toggleClass('open', expanded);
-    $authorLinks.stop(true, true);
-    if (animate && !reducedMotion.matches) {
-      $authorLinks[expanded ? 'fadeIn' : 'fadeOut']('fast');
-    } else {
-      $authorLinks.toggle(expanded);
-    }
-  };
-
-  var stickySideBar = function(){
-    if (!$authorLinks.length) return;
-    // Follow the stylesheet's layout mode instead of duplicating its breakpoint.
-    var desktop = $authorLinks.css('position') === 'relative';
-    if (desktop === sidebarDesktop) return;
-    sidebarDesktop = desktop;
-
-    if (desktop) {
-      Stickyfill.rebuild();
-      Stickyfill.init();
-    } else {
-      Stickyfill.stop();
-    }
-    var focusInLinks = $.contains($authorLinks[0], document.activeElement);
-    var focusOnButton = document.activeElement === $followButton[0];
-    setAuthorExpanded(desktop, false);
-    if (!desktop && focusInLinks) $followButton.trigger('focus');
-    if (desktop && focusOnButton) $authorLinks.find('a').first().trigger('focus');
-  };
-
-  stickySideBar();
-
-  $(window).resize(function(){
-    stickySideBar();
-  });
-
-  // Follow menu drop down
-  $followButton.on("click", function() {
-    setAuthorExpanded($(this).attr('aria-expanded') !== 'true', true);
-  });
-
-  $authorWrapper.on('keydown', function(event) {
-    if (event.key === 'Escape' && !sidebarDesktop && $followButton.attr('aria-expanded') === 'true') {
-      setAuthorExpanded(false, false);
-      $followButton.trigger('focus');
-      event.preventDefault();
-    }
-  });
-
-  $(document).on('click', function(event) {
-    if (!sidebarDesktop && !$authorWrapper.is(event.target) && !$authorWrapper.has(event.target).length) {
-      setAuthorExpanded(false, false);
-    }
-  });
 
   $('.skip-link').on('click', function() {
     $('#main').trigger('focus');
+  });
+
+  var $themeButton = $('.theme-toggle');
+  var updateThemeButton = function() {
+    var light = document.documentElement.dataset.theme === 'light';
+    $themeButton.attr('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme')
+      .attr('aria-pressed', String(light));
+    $('meta[name="theme-color"]').attr('content', light ? '#f5f4fa' : '#0d1320');
+  };
+  updateThemeButton();
+  $themeButton.prop('hidden', false).on('click', function() {
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('brotee-theme', next); } catch (error) { /* Optional preference. */ }
+    updateThemeButton();
   });
 
   // add lightbox class to all image links

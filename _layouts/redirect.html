@@ -1,0 +1,27 @@
+---
+layout: null
+---
+{%- assign destination = page.redirect.to -%}
+{%- assign origin_prefix = site.url | append: '/' -%}
+{%- assign prefix_length = origin_prefix | size -%}
+{%- assign target_prefix = destination | slice: 0, prefix_length -%}
+{%- if destination == site.url -%}
+  {%- assign destination = '/' -%}
+{%- elsif target_prefix == origin_prefix -%}
+  {%- assign destination = destination | remove_first: site.url -%}
+{%- endif -%}
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting - {{ site.title | escape }}</title>
+    <link rel="canonical" href="{{ page.redirect.to | escape }}">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="refresh" content="0; url={{ destination | escape }}">
+    <script>window.location.replace({{ destination | jsonify }});</script>
+  </head>
+  <body>
+    <p>Continue to <a href="{{ destination | escape }}">the requested page</a>.</p>
+  </body>
+</html>

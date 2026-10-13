@@ -1,23 +1,14 @@
 {% include base_path %}
-
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav" aria-label="Main navigation">
-        <button type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation-links"><span class="navicon" aria-hidden="true"></span></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul id="navigation-links" class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-mark" href="{% if page.url == '/' %}#top{% else %}{{ base_path }}/{% endif %}" aria-label="Shamyo Brotee — home">SB<span aria-hidden="true"> /</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      {% for link in site.data.navigation.main %}
+      <a href="{{ base_path }}{{ link.url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" hidden>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+    </button>
   </div>
-</div>
+</header>

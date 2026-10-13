@@ -21,10 +21,19 @@ the proposed MEANCRFT-MADDPG method substantially surpasses current state-of-the
 doubling efficiency in terms of target navigation time and task completion rate.'
 date: 2024-07-01
 venue: 'Ad Hoc Networks, Elsevier'
+authors:
+  - Shamyo Brotee
+  - Farhan Kabir
+  - Md. Abdur Razzaque
+  - Palash Roy
+  - Md. Mamun-Or-Rashid
+  - Md. Rafiul Hassan
+  - Mohammad Mehedi Hassan
 slidesurl: # URL
 paperurl: 'https://sbrotee63.github.io/files/UAV_UGV_Coalition_MADRL_Hybrid_Shamyo_Brotee.pdf'
 ---
-Authors: Shamyo Brotee, Farhan Kabir, Md. Abdur Razzaque, Palash Roy,
-Md. Mamun-Or-Rashid, Md. Rafiul Hassan, Mohammad Mehedi Hassan
+Authors: {{ page.authors | join: ', ' }}
 
-Abstract: {{ page.excerpt }}
+## Abstract
+
+{{ page.excerpt }}

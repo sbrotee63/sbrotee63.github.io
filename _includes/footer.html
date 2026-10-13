@@ -1,22 +1,13 @@
 {% include base_path %}
-
-{% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.author.github %}
-      <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li><a href="https://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-    {% endif %}
-    {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endif %}
-  </ul>
+<div class="footer-top">
+  <div class="footer-identity"><a href="{{ base_path }}/">{{ site.author.name }}</a><span>{{ site.author.bio }}</span><span>{{ site.author.location }}</span></div>
+  <div class="footer-connect">
+    {% include profile-links.html %}
+    <div class="footer-elsewhere"><span>Elsewhere</span>{% if site.author.facebook %}<a href="https://www.facebook.com/{{ site.author.facebook }}">Facebook</a>{% endif %}{% if site.author.goodreads %}<a href="https://www.goodreads.com/{{ site.author.goodreads }}">Goodreads</a>{% endif %}</div>
+  </div>
 </div>
-{% endif %}
-
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="footer-bottom">
+  <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}</p>
+  <nav aria-label="Site resources"><a href="{{ base_path }}/files/CV_Shamyo_Brotee.pdf">CV</a><a href="{{ base_path }}/sitemap/">Sitemap</a>{% if site.atom_feed.hide != true %}<a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">RSS</a>{% endif %}<a href="#top">Back to top <span aria-hidden="true">↑</span></a></nav>
+</div>
+<p class="footer-credits">Built with <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</p>

@@ -4,6 +4,12 @@ This is a Jekyll site using locally maintained AcademicPages/Minimal Mistakes la
 
 ## Toolchain and dependencies
 
+The Midnight Research presentation lives in `_sass/_midnight.scss`, imported after the legacy theme. Its dark and light palettes use CSS custom properties. Manrope and DM Sans are self-hosted in `assets/fonts/` alongside their OFL licenses.
+
+The homepage uses `_layouts/home.html`; its research text and interests remain in `_pages/about.md`. The shared publication card reads the publication collection's title, authors, venue, abstract, and links. Header navigation is in `_data/navigation.yml`, profile links in `_includes/profile-links.html`, and secondary links in `_includes/footer.html`.
+
+Run Jekyll from the repository root so Bundler loads the GitHub Pages plugins, including redirects. Internal assets, navigation, and same-site redirects are origin-relative; canonical metadata and social sharing retain the configured public URL. `_layouts/redirect.html` keeps legacy routes inside the current local preview while preserving external redirect destinations.
+
 - Ruby 3.3.12 and Bundler 2.5.22 (Ruby version recorded in `.ruby-version`).
 - Node.js 24.19.0 and npm (`.node-version`).
 - `github-pages` 232, matching the published GitHub Pages dependency set at the time of these fixes.
@@ -30,7 +36,7 @@ Jekyll compiles `assets/css/main.scss`. npm only bundles JavaScript. When changi
 
 - `_pages/about.md`: biography; `_config.yml`: author profile and site metadata.
 - `_data/navigation.yml`: header links.
-- `_publications/`: publication records. Supported categories are `books`, `manuscripts` (Journal Articles), and `conferences`; unmatched records still appear under Other Publications.
+- `_publications/`: publication records displayed in the homepage Selected Publications section. `/publications/` redirects to `/#publications` using an origin-relative target, so it works in both local previews and production. Individual paper URLs remain unchanged.
 - `files/CV_Shamyo_Brotee.pdf`: the authoritative CV. `/cv/` and `/resume` redirect to this same PDF. Its editable authoring source is not included; keep that source alongside your own CV workflow and replace this PDF when exporting updates.
 - The original photo remains `images/dp.jpg`; the sidebar uses orientation-corrected, compressed `dp-240.jpg` and `dp-480.jpg` derivatives. Preserve the original when updating these.
 - Sample posts, talks, teaching entries, portfolio items, and helper pages have `published: false`. The former sample HTML CV is retained in `_drafts/template-cv.md`. Template PDFs and helper scripts are excluded from deployment. To reuse a sample, replace its content and metadata, give it a unique permalink, then remove `published: false`.
@@ -40,7 +46,7 @@ Jekyll compiles `assets/css/main.scss`. npm only bundles JavaScript. When changi
 
 ## Verification and publication
 
-Check the homepage, publication listing and detail, CV redirects, and sitemap after shared template edits. Test keyboard navigation and the header/Follow menus at 320, 375, 768, 925, 1024, and 1280 pixels, including resizing with menus open. Check that sample content stays absent and internal resources load successfully.
+Check the homepage publication section, the `/publications/` redirect, paper detail, CV redirects, and sitemap after shared template edits. Test keyboard navigation, sticky-header anchors, the theme toggle, and the publication abstract at 320, 375, 768, 925, 1024, and 1280 pixels in both themes. Check that sample content stays absent and internal resources load successfully.
 
 `scripts/check_site.rb` checks the production `_site` output without external requests: local links/assets/fragments, metadata, downloads, CV redirects, sitemap, and sample exclusions. The optional generators have their own tests: `python -m unittest discover -s markdown_generator -p test_generators.py` (install PyYAML and pybtex for the full suite).
 

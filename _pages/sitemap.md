@@ -33,7 +33,7 @@ A list of all the posts and pages found on the site. For you robots out there is
     {% for post in collection.docs %}
       {% unless post.sitemap == false or post.published == false %}
         {% unless collection_title_shown %}
-          <h2>{{ collection.label | capitalize }}</h2>
+<h2>{{ collection.label | capitalize }}</h2>
           {% assign collection_title_shown = true %}
         {% endunless %}
         {% include archive-single.html %}

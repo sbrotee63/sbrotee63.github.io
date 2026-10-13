@@ -1,9 +1,10 @@
 {% assign publication = include.publication %}
 {% if publication.citation or publication.paperurl or publication.slidesurl %}
-  <p{% if include.compact %} style="font-size: smaller"{% endif %}>
+  <div class="publication-downloads">
     {% if publication.citation %}
-      Recommended citation: {{ publication.citation }}{% if publication.paperurl or publication.slidesurl %}<br>{% endif %}
+      <p>Recommended citation: {{ publication.citation }}</p>
     {% endif %}
-    {% if publication.paperurl %}<a href="{{ publication.paperurl | escape }}">Download Paper</a>{% endif %}{% if publication.paperurl and publication.slidesurl %} | {% endif %}{% if publication.slidesurl %}<a href="{{ publication.slidesurl | escape }}">Download Slides</a>{% endif %}
-  </p>
+    {% if publication.paperurl %}<a class="button button--primary" href="{{ publication.paperurl | escape }}">Download Paper <span class="button-format">PDF</span> <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if publication.slidesurl %}<a class="button button--secondary" href="{{ publication.slidesurl | escape }}">Download Slides <span aria-hidden="true">↗</span></a>{% endif %}
+  </div>
 {% endif %}

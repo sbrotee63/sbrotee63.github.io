@@ -1,5 +1,2 @@
-{% if site.url %}
-  {% assign base_path = site.url | append: site.baseurl %}
-{% else %}
-  {% assign base_path = site.github.url %}
-{% endif %}
+{% comment %}Use origin-relative assets/navigation so local previews remain local.{% endcomment %}
+{% assign base_path = site.baseurl | default: '' %}
