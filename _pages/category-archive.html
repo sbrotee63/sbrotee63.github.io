@@ -1,12 +1,22 @@
 ---
 layout: archive
 permalink: /categories/
-title: "Posts by Category"
+title: "Content by Category"
 author_profile: true
 ---
 
 {% include base_path %}
-{% include group-by-array collection=site.posts field="categories" %}
+{% assign taxonomy_posts = '' | split: ',' %}
+{% for collection in site.collections %}
+  {% unless collection.output == false %}
+    {% for post in collection.docs %}
+      {% unless post.published == false %}
+        {% assign taxonomy_posts = taxonomy_posts | push: post %}
+      {% endunless %}
+    {% endfor %}
+  {% endunless %}
+{% endfor %}
+{% include group-by-array collection=taxonomy_posts field="categories" %}
 
 {% for category in group_names %}
   {% assign posts = group_items[forloop.index0] %}

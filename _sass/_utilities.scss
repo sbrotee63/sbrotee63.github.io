@@ -66,8 +66,10 @@ body:hover .visually-hidden button {
    ========================================================================== */
 
 .skip-link {
-  position: fixed;
-  z-index: 20;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 100000;
   margin: 0;
   font-family: $sans-serif;
   white-space: nowrap;
@@ -324,6 +326,7 @@ body:hover .visually-hidden button {
    ========================================================================== */
 
 .navicon {
+  display: block;
   position: relative;
   width: $navicon-width;
   height: $navicon-height;
@@ -471,12 +474,12 @@ body:hover .visually-hidden button {
    ========================================================================== */
 
 .footnote {
-  color: mix(#fff, $gray, 25%);
+  color: $muted-text-color;
   text-decoration: none;
 }
 
 .footnotes {
-  color: mix(#fff, $gray, 25%);
+  color: $muted-text-color;
 
   ol, li, p {
     margin-bottom: 0;
@@ -485,7 +488,7 @@ body:hover .visually-hidden button {
 }
 
 a.reversefootnote {
-  color: $gray;
+  color: $muted-text-color;
   text-decoration: none;
 
   &:hover {

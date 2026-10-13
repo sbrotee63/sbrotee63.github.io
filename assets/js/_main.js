@@ -3,6 +3,19 @@
    ========================================================================== */
 
 $(document).ready(function(){
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var updateMotion = function() {
+    $.fx.off = reducedMotion.matches;
+    if (reducedMotion.matches) $(':animated').stop(true, true);
+    $("a:not(.skip-link)").smoothScroll({offset: -80, speed: reducedMotion.matches ? 0 : 400});
+  };
+  updateMotion();
+  if (reducedMotion.addEventListener) {
+    reducedMotion.addEventListener('change', updateMotion);
+  } else {
+    reducedMotion.addListener(updateMotion);
+  }
+
   // Sticky footer
   var bumpIt = function() {
       $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
@@ -26,30 +39,41 @@ $(document).ready(function(){
   // init sticky sidebar
   $(".sticky").Stickyfill();
 
-  var stickySideBar = function(){
-    const MINIMUM_WIDTH = 1024;
+  var $authorWrapper = $(".author__urls-wrapper");
+  var $followButton = $authorWrapper.find("button");
+  var $authorLinks = $authorWrapper.find(".author__urls");
+  var sidebarDesktop;
 
-    // Adjust if the follow button is shown based upon screen size
-    var width = $(window).width();
-    var show = $(".author__urls-wrapper button").length === 0 ? width > MINIMUM_WIDTH : !$(".author__urls-wrapper button").is(":visible");
+  $followButton.toggleClass('hidden', $authorLinks.children('li').not('.author__desktop').length === 0);
 
-    // Don't show the follow button if there is no content for it
-    var count = $('.author__urls.social-icons li').length - $('li[class="author__desktop"]').length;
-    if (width <= MINIMUM_WIDTH && count === 0) {
-      $(".author__urls-wrapper button").hide();
-      show = false;
+  var setAuthorExpanded = function(expanded, animate) {
+    $followButton.attr('aria-expanded', String(expanded)).toggleClass('open', expanded);
+    $authorLinks.stop(true, true);
+    if (animate && !reducedMotion.matches) {
+      $authorLinks[expanded ? 'fadeIn' : 'fadeOut']('fast');
+    } else {
+      $authorLinks.toggle(expanded);
     }
+  };
 
-    if (show) {
-      // fix
+  var stickySideBar = function(){
+    if (!$authorLinks.length) return;
+    // Follow the stylesheet's layout mode instead of duplicating its breakpoint.
+    var desktop = $authorLinks.css('position') === 'relative';
+    if (desktop === sidebarDesktop) return;
+    sidebarDesktop = desktop;
+
+    if (desktop) {
       Stickyfill.rebuild();
       Stickyfill.init();
-      $(".author__urls").show();
     } else {
-      // unfix
       Stickyfill.stop();
-      $(".author__urls").hide();
     }
+    var focusInLinks = $.contains($authorLinks[0], document.activeElement);
+    var focusOnButton = document.activeElement === $followButton[0];
+    setAuthorExpanded(desktop, false);
+    if (!desktop && focusInLinks) $followButton.trigger('focus');
+    if (desktop && focusOnButton) $authorLinks.find('a').first().trigger('focus');
   };
 
   stickySideBar();
@@ -59,13 +83,27 @@ $(document).ready(function(){
   });
 
   // Follow menu drop down
-  $(".author__urls-wrapper button").on("click", function() {
-    $(".author__urls").fadeToggle("fast", function() {});
-    $(".author__urls-wrapper button").toggleClass("open");
+  $followButton.on("click", function() {
+    setAuthorExpanded($(this).attr('aria-expanded') !== 'true', true);
   });
 
-  // init smooth scroll, this needs to be slightly more than then fixed masthead height
-  $("a").smoothScroll({offset: -65});
+  $authorWrapper.on('keydown', function(event) {
+    if (event.key === 'Escape' && !sidebarDesktop && $followButton.attr('aria-expanded') === 'true') {
+      setAuthorExpanded(false, false);
+      $followButton.trigger('focus');
+      event.preventDefault();
+    }
+  });
+
+  $(document).on('click', function(event) {
+    if (!sidebarDesktop && !$authorWrapper.is(event.target) && !$authorWrapper.has(event.target).length) {
+      setAuthorExpanded(false, false);
+    }
+  });
+
+  $('.skip-link').on('click', function() {
+    $('#main').trigger('focus');
+  });
 
   // add lightbox class to all image links
   $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
@@ -88,6 +126,7 @@ $(document).ready(function(){
     mainClass: 'mfp-zoom-in',
     callbacks: {
       beforeOpen: function() {
+        this.st.removalDelay = reducedMotion.matches ? 0 : 500;
         // just a hack that adds mfp-anim class to markup
         this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
       }

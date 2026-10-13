@@ -1,6 +1,10 @@
-# Academic Pages
+# Shamyo Brotee's personal website
 
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
+Live site: <https://sbrotee63.github.io/>. This repository uses the AcademicPages Jekyll template.
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for the verified build commands, native Windows setup, JavaScript rebuilding, and content maintenance. The upstream template introduction below is retained for reference.
+
+# Academic Pages template
 
 Academic Pages is a Github Pages template for academic websites.
 
@@ -33,8 +37,8 @@ When you are initially working your website, it is very useful to be able to pre
     brew install node
     gem install bundler
     ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+1. Run `bundle install` to install the locked Ruby dependencies. Keep `Gemfile.lock`; update dependencies deliberately with Bundler.
+1. Run `bundle exec jekyll serve --host 127.0.0.1` to generate HTML and serve it from `http://127.0.0.1:4000`. Jekyll rebuilds content as it changes. Rebuild JavaScript separately as described in DEVELOPMENT.md.
 
 If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
 

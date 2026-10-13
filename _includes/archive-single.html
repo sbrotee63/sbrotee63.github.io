@@ -11,6 +11,7 @@
 {% else %}
   {% assign title = post.title %}
 {% endif %}
+{% if post.url == "/" %}{% assign title = title | default: site.title %}{% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
@@ -47,24 +48,12 @@
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}<p><strong><a href="{{ base_path }}{{ post.url }}" rel="permalink">Read more</a></strong></p></div>
     {% endif %}
     
-    {% if post.citation and post.paperurl and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }}</p>
-    {% elsif post.paperurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-    {% elsif post.slidesurl %}
-      <p>Download <a href="{{ post.slidesurl }}">Download Slides</a></p></p>
-    {% endif %}
+    {% include publication-links.html publication=post %}
 
   </article>
 </div>

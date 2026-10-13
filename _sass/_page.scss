@@ -3,6 +3,7 @@
    ========================================================================== */
 
 #main {
+  scroll-margin-top: $masthead-height + 10px;
   @include container;
   @include clearfix;
   margin-top: 2em;
@@ -227,7 +228,7 @@
 
 .page__meta {
   margin-top: 2em;
-  color: mix(#fff, $gray, 25%);
+  color: $muted-text-color;
   font-family: $sans-serif;
   font-size: $type-size-6;
 

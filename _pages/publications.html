@@ -26,6 +26,22 @@ author_profile: true
       {% include archive-single.html %}
     {% endfor %}
   {% endfor %}
+  {% assign other_title_shown = false %}
+  {% for post in site.publications reversed %}
+    {% assign category_known = false %}
+    {% for category in site.publication_category %}
+      {% if post.category == category[0] %}
+        {% assign category_known = true %}
+      {% endif %}
+    {% endfor %}
+    {% unless category_known %}
+      {% unless other_title_shown %}
+        <h2>Other Publications</h2><hr />
+        {% assign other_title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endunless %}
+  {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
     {% include archive-single.html %}

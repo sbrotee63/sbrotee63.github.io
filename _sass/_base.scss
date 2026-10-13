@@ -21,6 +21,12 @@ body {
   }
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid $link-color;
+  outline-offset: 3px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 2em 0 0.5em;
   line-height: 1.2;

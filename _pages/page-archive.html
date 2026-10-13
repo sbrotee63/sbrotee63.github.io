@@ -7,5 +7,9 @@ author_profile: false
 
 {% include base_path %}
 {% for post in site.pages %}
-  {% include archive-single.html %}
+  {% unless post.sitemap == false or post.redirect_to or post.published == false %}
+    {% if post.title or post.url == '/' %}
+      {% include archive-single.html %}
+    {% endif %}
+  {% endunless %}
 {% endfor %}

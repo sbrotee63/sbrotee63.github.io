@@ -12,8 +12,8 @@ title                    : "Shamyo Brotee"
 theme                    : "jekyll-theme-minimal"
 title_separator          : "-"
 name                     : &name "Shamyo Brotee"
-description              : &description "This page will contain the news about my life"
-url                      : https://sbrotee63.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : &description "Shamyo Brotee, Computer Science MS student and Graduate Research Assistant at Texas State University, researching diffusion models, flow matching, and molecular graph generation."
+url                      : https://sbrotee63.github.io # hostname without a trailing slash
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sbrotee63/sbrotee63.github.io"
 
@@ -22,7 +22,7 @@ repository               : "sbrotee63/sbrotee63.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "dp.jpg"
+  avatar           : "dp-480.jpg"
   name             : "Shamyo Brotee"
   pronouns         : # example: "she/her"  
   bio              : "Aspiring Computer Scientist"
@@ -85,7 +85,8 @@ publication_category:
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
-future                   : true
+future                   : false
+mathjax                  : false # opt in per page with mathjax: true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false #change to true to add link to talkmap on talks page
 comments:
@@ -144,7 +145,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               :  false # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
 
@@ -155,6 +156,25 @@ include:
   - _pages
   - files
 exclude:
+  - _site
+  - _drafts
+  - markdown_generator
+  - talkmap
+  - talkmap.py
+  - talkmap.ipynb
+  - scripts
+  - DEVELOPMENT.md
+  - .ruby-version
+  - .node-version
+  - Gemfile.lock
+  - package-lock.json
+  - CONTRIBUTING.md
+  - files/paper1.pdf
+  - files/paper2.pdf
+  - files/paper3.pdf
+  - files/slides1.pdf
+  - files/slides2.pdf
+  - files/slides3.pdf
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
@@ -289,7 +309,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Chicago
 
 
 # Plugins
