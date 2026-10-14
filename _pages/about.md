@@ -6,7 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 hero_role: "MS student & Graduate Research Assistant"
-hero_affiliation: "Computer Science · Texas State University"
+hero_affiliation: "Computer Science, Texas State University"
 hero_summary: >-
   Under the supervision of [Dr. Chul-Ho Lee](https://sites.google.com/site/chulholeesite/){:target="_blank" rel="noopener noreferrer" aria-label="Dr. Chul-Ho Lee (opens in a new tab)"},
   I study applications of diffusion models and flow matching to molecular graph generation.
@@ -14,7 +14,7 @@ research_interests:
   - Diffusion models
   - Flow matching
   - Molecular graph generation
-  - Multi-agent deep reinforcement learning
+  - Multi-agent reinforcement learning
   - Applications of machine learning to cyber-physical systems
 ---
 
