@@ -23,6 +23,8 @@
   --ice: #99d5df;
   --line: #2b3548;
   --button-text: #161326;
+  --cv-bg: rgba(182, 166, 255, .09);
+  --cv-hover-bg: rgba(182, 166, 255, .16);
   --header-bg: rgba(13, 19, 32, .94);
   --font-body: "DM Sans", "Segoe UI", sans-serif;
   --font-heading: "Manrope", "Segoe UI", sans-serif;
@@ -37,6 +39,8 @@
   --ice: #286578;
   --line: #d7d3e2;
   --button-text: #fff;
+  --cv-bg: rgba(99, 70, 180, .07);
+  --cv-hover-bg: rgba(99, 70, 180, .12);
   --header-bg: rgba(245, 244, 250, .95);
 }
 html {
@@ -77,7 +81,7 @@ button { font: inherit; }
 /* A compact, always-visible navigation avoids a hidden mobile contact menu. */
 .site-header { position: sticky; top: 0; z-index: 30; background: var(--header-bg); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
 .site-header__inner { width: calc(100% - 96px); max-width: 1100px; margin: 0 auto; min-height: 88px; display: flex; align-items: center; gap: 28px; }
-.site-mark { margin-right: auto; font-family: var(--font-heading); font-size: 24px; font-weight: 700; letter-spacing: -.06em; text-decoration: none; color: var(--text); min-height: 44px; display: flex; align-items: center; gap: 7px; }
+.site-mark { margin-right: auto; font-family: var(--font-heading); font-size: 22px; font-weight: 600; letter-spacing: -.04em; flex-shrink: 0; white-space: nowrap; text-decoration: none; color: var(--text); min-height: 44px; display: flex; align-items: center; gap: 7px; }
 .site-nav { display: flex; align-items: center; gap: 30px; }
 .site-nav a { display: inline-flex; min-height: 44px; align-items: center; font-size: 14px; color: var(--muted); text-decoration: none; }
 .site-nav a:hover, .site-nav a[aria-current] { color: var(--text); }
@@ -128,6 +132,8 @@ button { font: inherit; }
 .button--primary:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
 .button--secondary { background: transparent; color: var(--text); }
 .button--secondary:hover { border-color: var(--accent); color: var(--accent); }
+.button--cv { background: var(--cv-bg); border-color: var(--accent); }
+.button--cv:hover { background: var(--cv-hover-bg); color: var(--text); }
 .button-format { font-size: 10px; letter-spacing: .08em; color: var(--muted); }
 .button--primary .button-format { color: inherit; }
 .publication-downloads { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
@@ -221,7 +227,7 @@ button { font: inherit; }
   html { scroll-padding-top: 88px; }
   body.midnight-site { font-size: 16px; }
   .site-header__inner { gap: 12px; min-height: 72px; }
-  .site-mark { font-size: 21px; }
+  .site-mark { font-size: 18px; }
   .site-nav { gap: 17px; }
   .site-nav a { font-size: 12px; }
   .theme-toggle { flex-basis: 34px; width: 34px; height: 40px; border: 0; }
@@ -257,7 +263,7 @@ button { font: inherit; }
   .site-header__inner, #main, .page__footer .site-footer { width: calc(100% - 36px); }
   .site-header__inner { gap: 9px; }
   .site-nav { gap: 12px; }
-  .site-mark { font-size: 19px; gap: 3px; }
+  .site-mark { font-size: 16px; gap: 3px; }
   .theme-toggle { width: 28px; flex-basis: 28px; }
   .publication-card { padding: 18px; }
   .portrait-frame.author__avatar img { height: 320px; }
